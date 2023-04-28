@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.16;
 
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "./Movie.sol";
@@ -36,7 +36,7 @@ contract BlockBuster is ReentrancyGuard {
         require(rental.returnTime == 0, "BlockBuster: rental has already been returned");
 
         rental.returnTime = block.timestamp;
-        payable(rental.renter).transfer(msg.value);
+        //payable(rental.renter).transfer(msg.value);
     }
 
     function getRental(uint movieId, uint rentalIndex) public view returns (address, uint, uint) {
